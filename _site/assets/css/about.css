@@ -1,0 +1,169 @@
+.about-page {
+  background: transparent;
+  min-height: 100vh;
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.about-header {
+  text-align: center;
+  margin-bottom: 50px;
+  position: relative;
+  z-index: 10;
+}
+
+.about-avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 4px solid white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  object-fit: cover;
+}
+
+.about-title {
+  margin-top: 15px;
+  font-size: 3em;
+  color: #ffa4a4;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.content-container {
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 250%;
+  padding: 50px;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.2); 
+  border-radius: 25px;
+  box-shadow: 8px 8px 3px rgba(0, 0, 0, 0.3);
+  margin-top: 20px;
+  font-size: 1.2em;
+  text-shadow:  1px 1px 3px rgba(0, 0, 0, 0.4);
+  margin-bottom: 50px;
+}
+
+.about-content {
+  margin-bottom: 25px;
+  font-size: 1em;
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.about-content a {
+  color: #ffa4a4;
+  border-bottom: 1px solid #ffa4a4;
+  text-shadow: 0px 0px 3px rgba(23, 22, 22, 0.5);
+}
+
+.about-content h1,
+.about-content h2,
+.about-content h3,
+.about-content h4,
+.about-content h5,
+.about-content h6 {
+  margin: 1.75rem 0;
+  font-weight: bolder !important;
+  line-height: 180%;
+}
+
+.about-content hr {
+  border-top: 1px dashed #fff !important;
+  border-bottom: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  margin-bottom: 1.75rem !important;
+}
+
+@media (max-width: 768px) {
+  .content-container {
+    width: 90%;
+  }
+}
+
+.v[data-class=v] .vinput {
+color: #fff !important; 
+text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+border: none;
+resize: none;
+outline: none;
+padding: 10px 5px;
+max-width: 100%;
+font-size: 1rem !important;
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+}
+
+.v[data-class=v] .vpreview p{
+  color: #fff !important;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.v[data-class=v] .vwrap {
+border: 2px solid rgba(255, 255, 255, 0.9) !important;
+border-radius: 16px !important;
+margin-bottom: 10px;
+overflow: hidden;
+position: relative;
+padding: 10px;
+}
+
+.v[data-class=v] .vinput::placeholder {
+  color: #fff !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+  opacity: 1 !important;
+}
+
+.v[data-class=v] .vcol.vcol-70 .vsubmit.vbtn {
+  border: 1.5px solid rgba(255, 255, 255, 0.8) !important;
+  color: rgba(255, 255, 255, 0.8)!important;
+  background-color: transparent;
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+
+.v[data-class=v] .vcol.vcol-70 .vsubmit.vbtn:hover {
+  background-color: rgba(0, 0, 0, 0.3) !important;
+  color: #fff;
+}
+
+.vcards .vcard,
+.vcards .vcard * {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.v[data-class=v] .vicon {
+cursor: pointer;
+fill: #ffffff !important;
+}
+
+.v[data-class=v] .vempty {
+padding: 1.25em;
+text-align: center;
+color: #f5f4f4 !important;
+overflow: auto;
+}
+
+.about-content,
+.about-content div,
+.about-content div pre,
+.about-content div pre code {
+  overflow-x: auto !important;
+}
+
+.about-content pre {
+  padding: 1rem 2rem;
+  margin-bottom: 1.75rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 3ch;
+  line-height: 150%;
+}
+
+.about-content code {
+  padding: 3px 5px;
+  white-space: pre;
+}

@@ -1,0 +1,17 @@
+name: (你的昵称)
+dp: /assets/images/avatar.jpg #头像路径
+description: "
+  <p>
+    (个性签名)
+  <br/>
+  <p>
+    ——— 快来 <a href='https://github.com/(用户名)' target='_blank'>Github.</a>找我叭～
+  </p>
+"
+email: 你的邮箱
+
+contact:
+  - title: github
+    url: https://github.com/(用户名)
+  - title: email
+    url: mailto:你的邮箱@outlook.com

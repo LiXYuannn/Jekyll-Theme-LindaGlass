@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>(页面标题)</title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/about.css">
+</head>
+<body>
+  <div class="fixed-background"></div>
+  <div class="about-page">
+    <div class="about-header">
+      <img src="/assets/images/avatar.jpg" class="about-avatar">
+      <h1 class="about-title">关于我👑</h1> 
+    </div>
+      <nav class="site-nav">
+  <ul>
+    <li><a href="/" >首页</a></li>
+    <li><a href="/about" class="active">栏目一</a></li>
+    <li><a href="/archive" >栏目二</a></li>
+    <li><a href="/explore" >栏目三</a></li>
+  </ul>
+</nav>
+
+<!-- 页面名称标为栏目xx，使用时页面跳转链接记得修改⚠️ -->
+
+      <div class="content-container">
+        <div class="about-content">
+          <p>这里写你的自我介绍，关于你的一些个人信息</p>
+
+        </div>
+        <h6>说点什么…</h6>
+
+<div id="vcomments"></div>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+    <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'it55DzxX1q0dJJ3x27Ietfhq-gzGzoHsz',
+            appKey: '0voRk494pOPc2N4hBNvAtgIa',
+            placeholder: '欢迎打扰！',
+            avatar: 'mp'
+        })
+    </script>
+      </div>
+  <footer>
+   <div class="friends-links-container">
+      <div class="friends-links-header">
+        <p>Friend_Link😝</p>
+      </div>
+        
+      <div class="friends-list">
+            
+        <div class="friend-item">
+          <a href=" (site-url)" target="_blank" rel="noopener noreferrer">
+            <img src="(avatar)" alt="好友一" class="friend-avatar">
+          </a>
+          <span class="friend-name">(nickname)</span>
+        </div>
+            
+        <!-- <div class="friend-item">
+          <a href="https://another-example.com" target="_blank" rel="noopener noreferrer">
+            <img src="/path/to/friend-avatar2.jpg" alt="好友二" class="friend-avatar">
+          </a>
+          <span class="friend-name">好友二</span>
+        </div> -->
+            
+      </div>
+    </div>
+    <p class="ps">—— 如果你也想添加友链，相见关于我的页面或者邮箱联系我！🍉</p>
+    <hr>
+      <p>&copy; 2025 | (name)</p>
+
+</footer>
+
+  <div class="announcement-container">
+   <div class="announcement-icon" id="announcement-icon">
+        <img src="/assets/images/logo.svg" alt="公告图标">
+    </div>
+    <div class="announcement-panel" id="announcement-panel">
+        <span class="close-btn">&times;</span>
+            <div class="announcement-content">
+                <div class="announcement-header">
+                <p>公告栏🪧</p>
+            </div>
+            <p>📌这里放置公告栏的内容</p>
+        </div>
+    </div>
+</div>
+
+    <!-- ✅ 放这里：MathJax 配置 + 加载脚本 -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <script src="/assets/js/script.js"></script>
+</body>
+</html>

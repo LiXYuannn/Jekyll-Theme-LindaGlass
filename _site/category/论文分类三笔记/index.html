@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>论文分类三笔记</title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/archive.css">
+</head>
+<body>
+  <!-- 背景层 -->
+  <div class="fixed-background"></div>
+  
+  <div class="archive-page">
+    <!-- 头部区域 -->
+    <div class="archive-header">
+      <img src="/assets/images/avatar.jpg" 
+           alt="作者头像"
+           class="archive-avatar"
+           onerror="this.style.display='none'">
+      <h1 class="archive-title">作品集 📖</h1> 
+    </div>
+    
+    <nav class="site-nav">
+  <ul>
+    <li><a href="/" >首页</a></li>
+    <li><a href="/about" >栏目一</a></li>
+    <li><a href="/archive" >栏目二</a></li>
+    <li><a href="/explore" >栏目三</a></li>
+  </ul>
+</nav>
+
+<!-- 页面名称标为栏目xx，使用时页面跳转链接记得修改⚠️ -->
+    <div class="search-container">
+          <h3>文章检索🔍</h3>
+          <input type="text" id="search-input" placeholder="输入标题、分类或内容...">
+          <ul id="search-results"></ul>
+        </div>
+
+        <script>
+          document.addEventListener('DOMContentLoaded', function() {
+          const searchInput = document.getElementById('search-input');
+          const resultsContainer = document.getElementById('search-results');
+          let searchData = [];
+
+          const searchUrl = new URL('/search.json', window.location.origin).href;
+          fetch(searchUrl)
+            .then(response => {
+              if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+              }
+              return response.json();
+            })
+            .then(data => {
+              searchData = data;
+            })
+            .catch(error => console.error('加载搜索数据失败:', error));
+
+            searchInput.addEventListener('input', function() {
+              const query = this.value.toLowerCase().trim();
+              resultsContainer.innerHTML = '';
+
+              if (query.length < 2) {
+                return;
+              }
+
+              const matchingPosts = searchData.filter(post => {
+                const title = post.title || '';
+                const categories = post.categories || '';
+                const content = post.content || '';
+
+                const titleMatch = title.toLowerCase().includes(query);
+                const categoryMatch = categories.toLowerCase().includes(query);
+                const contentMatch = content.toLowerCase().includes(query);
+                
+                return titleMatch || categoryMatch || contentMatch;
+              });
+
+              if (matchingPosts.length > 0) {
+                matchingPosts.forEach(post => {
+                  const listItem = document.createElement('li');
+                  listItem.innerHTML = `
+                    <a href="${post.url}">${post.title}</a>
+                    <small>${post.date}</small>
+                  `;
+                  resultsContainer.appendChild(listItem);
+                });
+              } else {
+                const noResultItem = document.createElement('li');
+                noResultItem.textContent = '未找到相关文章';
+                resultsContainer.appendChild(noResultItem);
+              }
+            });
+          });
+        </script>
+    
+    <div class="archive-container">
+      <div class="archive-column1">
+        <div class="archive-card1">
+            <h1>分类列表🥥</h1>
+            <p class ="reminder">可根据感兴趣的标签于文章检索栏目进行搜索哦～🥑</p>
+            <div class="categories-list">
+              
+                <li>
+                    🏷️ 分类一：2 篇
+                </li>
+              
+                <li>
+                    🏷️ 分类二：2 篇
+                </li>
+              
+                <li>
+                    🏷️ 论文分类三笔记：1 篇
+                </li>
+              
+                <li>
+                    🏷️ 分类三：1 篇
+                </li>
+              
+              </div>
+        </div>
+      </div>
+      
+      <!-- 右侧作品展示区 (保持不变) -->
+      <div class="archive-column2">
+        <div class="archive-grid">
+          
+          
+          
+          
+          
+          
+            
+            <div class="card">
+              
+                <div class="card-image default-image"></div>
+              
+              
+              <div class="card-content">
+                <a href="/posts/%E6%A0%87%E9%A2%98%E4%B8%89/" aria-label="标题三">
+                  <h3 class="card-title">标题三</h3>
+                  <p class="card-excerpt">
+                    文章内容
+
+                  </p>
+                </a>
+              </div>
+            </div>
+          
+            
+            <div class="card">
+              
+                <div class="card-image default-image"></div>
+              
+              
+              <div class="card-content">
+                <a href="/posts/%E6%A0%87%E9%A2%98%E4%BA%8C/" aria-label="(标题二)">
+                  <h3 class="card-title">(标题二)</h3>
+                  <p class="card-excerpt">
+                    文章内容
+
+                  </p>
+                </a>
+              </div>
+            </div>
+          
+            
+            <div class="card">
+              
+                <div class="card-image default-image"></div>
+              
+              
+              <div class="card-content">
+                <a href="/posts/%E6%A0%87%E9%A2%98%E4%B8%80/" aria-label="(标题一)">
+                  <h3 class="card-title">(标题一)</h3>
+                  <p class="card-excerpt">
+                    这里放置你的博客内容，文章配图放在/assets
+                  </p>
+                </a>
+              </div>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+
+    <footer>
+   <div class="friends-links-container">
+      <div class="friends-links-header">
+        <p>Friend_Link😝</p>
+      </div>
+        
+      <div class="friends-list">
+            
+        <div class="friend-item">
+          <a href=" (site-url)" target="_blank" rel="noopener noreferrer">
+            <img src="(avatar)" alt="好友一" class="friend-avatar">
+          </a>
+          <span class="friend-name">(nickname)</span>
+        </div>
+            
+        <!-- <div class="friend-item">
+          <a href="https://another-example.com" target="_blank" rel="noopener noreferrer">
+            <img src="/path/to/friend-avatar2.jpg" alt="好友二" class="friend-avatar">
+          </a>
+          <span class="friend-name">好友二</span>
+        </div> -->
+            
+      </div>
+    </div>
+    <p class="ps">—— 如果你也想添加友链，相见关于我的页面或者邮箱联系我！🍉</p>
+    <hr>
+      <p>&copy; 2025 | (name)</p>
+
+</footer>
+
+    <div class="announcement-container">
+   <div class="announcement-icon" id="announcement-icon">
+        <img src="/assets/images/logo.svg" alt="公告图标">
+    </div>
+    <div class="announcement-panel" id="announcement-panel">
+        <span class="close-btn">&times;</span>
+            <div class="announcement-content">
+                <div class="announcement-header">
+                <p>公告栏🪧</p>
+            </div>
+            <p>📌这里放置公告栏的内容</p>
+        </div>
+    </div>
+</div>
+
+    
+    <!-- 异步加载JS -->
+    <script defer src="/assets/js/script.js"></script>
+  </div>
+</body>
+</html>

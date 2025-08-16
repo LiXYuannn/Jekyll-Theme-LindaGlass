@@ -1,0 +1,46 @@
+title: (网站名称)
+markdown: kramdown
+url: "(域名)"
+
+
+# for atom feed
+author:
+  name: (你的昵称)
+  email: (你的邮箱)
+
+plugins:
+  - jemoji
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-archives
+
+collections_dir: all_collections
+collections:
+  posts:
+    output: true
+
+defaults:
+  - scope:
+      path: "_posts"
+    values:
+      layout: "post"
+      permalink: /posts/:title/
+exclude: ["sitemap.xml", "feed.xml", "LICENSE", "README.md"]
+
+
+# 本地调试时使用的基础URL
+baseurl: ""
+
+kramdown:
+  input: GFM
+  auto_ids: true
+  syntax_highlighter: rouge
+
+jekyll-archives:
+  enabled:
+    - categories  # 启用分类归档
+  layouts:
+    categories: 'category-archive' # 指定分类归档页面使用的布局
+  permalinks:
+    category: '/category/:name/' # 定义归档页面的URL结构

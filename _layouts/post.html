@@ -1,0 +1,78 @@
+---
+layout: default
+---
+
+<main class="blogfeed">
+  <section id="article">
+    <div class="profile-header">
+      <img src="{{ '/assets/images/avatar.jpg' | relative_url }}" class="profile-avatar">
+      <h1 class="profile-title">{{ page.title }}</h1> 
+    </div>
+    {% include navigation.html %}
+    <div class="article-thumbnail">
+      <div class="article-bottom">
+        <small class="article-date">{{page.date | date_to_string}}</small>
+        <div class="article-categories">
+          {% for c in page.categories %}
+          <a href="#!" class="article-category">{{c}}</a>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <div class="article-content">
+      {{ content }}
+
+      {% comment %}
+      {% endcomment %}
+
+      {% assign max_related = 5 %}  {% comment %} 您希望显示的相关文章最大数量 {% endcomment %}
+      {% assign min_common_tags = 1 %} {% comment %} 至少需要有几个共同标签才算相关 {% endcomment %}
+      {% assign current_post_tags = page.tags %}
+
+      {% comment %}
+      {% endcomment %}
+
+      {% assign max_related = 3 %}  {% comment %} 您希望显示的相关文章最大数量 {% endcomment %}
+      {% assign min_common_categories = 1 %} {% comment %} 至少需要有几个共同分类才算相关 {% endcomment %}
+      {% assign current_post_categories = page.categories %}
+
+      <div class="related-posts">
+        <h2>相关文章</h2>
+        <ul>
+          {% assign related_count = 0 %}
+          {% for post in site.posts %}
+            {% if post.url != page.url %}
+              {% assign common_categories_count = 0 %}
+              {% for category in post.categories %}
+                {% if current_post_categories contains category %}
+                  {% assign common_categories_count = common_categories_count | plus: 1 %}
+                {% endif %}
+              {% endfor %}
+
+              {% if common_categories_count >= min_common_categories %}
+                {% if related_count < max_related %}
+                  <li>
+                    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                    <small>{{ post.date | date: "%Y年%m月%d日" }}</small>
+                  </li>
+                  {% assign related_count = related_count | plus: 1 %}
+                {% endif %}
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+
+      {% if related_count == 0 %}
+      <script>
+        // 如果没有找到相关文章，就隐藏整个区域
+        document.querySelector('.related-posts').style.display = 'none';
+      </script>
+      {% endif %}
+
+      {% include comment.html %}
+    </div>
+  </section>
+</main>
+

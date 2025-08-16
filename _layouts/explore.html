@@ -1,0 +1,30 @@
+---
+layout: explore
+---
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/explore.css' | relative_url }}">
+    </head>
+    <body>
+    <div class="fixed-background"></div>
+    <div class="explore-page">
+        <div class="explore-header">
+        <img src="{{ '/assets/images/avatar.jpg' | relative_url }}" class="explore-avatar">
+        <h1 class="explore-title">更多🚀</h1> 
+        </div>
+        {% include navigation.html %}
+        <div class="content-container">
+            <div class="explore-content">
+                {{ content }}
+            </div>
+            {% include comment.html %}
+        </div>
+    {% include footer.html %}
+    {% include announcement.html %}
+    <script src="{{ '/assets/js/script.js' | relative_url }}"></script>
+    </body>
+</html>

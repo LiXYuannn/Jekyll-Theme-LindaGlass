@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <div class="fixed-background"></div>
+  <title>{{ page.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  {% include head.html %}
+</head>
+<body>
+
+  <div id="swup">
+    {{ content }}
+  </div>
+
+  {% include footer.html %}
+  {% include category-modal.html%}
+  
+<!-- 懒加载 -->
+  <script>
+      window.addEventListener('DOMContentLoaded', (event) => {
+        const images = document.querySelectorAll('img');
+        images.forEach(image => {
+          if (!image.hasAttribute('loading')) {
+            image.setAttribute('loading', 'lazy');
+          }
+        });
+      });
+    </script>
+
+  <!-- ✅ 放这里：MathJax 配置 + 加载脚本 -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <script src="{{ '/assets/js/script.js' | relative_url }}"></script>
+  {% include announcement.html %}
+</body>
+</html>
