@@ -29,5 +29,5 @@ bundle exec jekyll serve
 ```
 ## Declaration:⚠️
 After you have applied my template, you must modify the important elements such as the profile picture and background image. Additionally, you should indicate the source of the template or link to my blog website as an external reference. Otherwise, I will consider it as your plagiarism of my website.      
-在您应用了我的模板之后，您必须修改一些关键元素，比如个人头像和背景图片。此外，您还应当标明模板的来源或者链接到我的博客网站作为外部参考。否则，我会将此视为您抄袭了我的网站内容。
+在您应用了我的模板之后，您必须修改一些关键元素，比如个人头像和背景图片。此外，您还应当标明模板的来源或者链接到我的博客网站作为外部参考。否则，您的使用将被视为抄袭。
 
